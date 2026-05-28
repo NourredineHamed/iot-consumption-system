@@ -1,0 +1,12 @@
+{
+  "name": "esp32-simulator",
+  "version": "1.0.0",
+  "description": "Simulateur ESP32 local (Node)",
+  "main": "esp32-sim-node.js",
+  "scripts": {
+    "start": "node esp32-sim-node.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

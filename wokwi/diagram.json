@@ -1,0 +1,7 @@
+{
+  "name": "ESP32-sim",
+  "description": "Schéma de simulation Wokwi (ESP32 envoie JSON au backend)",
+  "esp32": {
+    "sketch": "#include <WiFi.h>\n#include <HTTPClient.h>\n\nvoid setup() {\n  WiFi.begin(\"Wokwi-GUEST\", \"\");\n  while (WiFi.status() != WL_CONNECTED) { delay(100); }\n}\n\nvoid loop() {\n  HTTPClient http;\n  http.begin(\"http://host.docker.internal:3000/data\");\n  http.addHeader(\"Content-Type\", \"application/json\");\n  String json = \"{\\\"eau\\\":120,\\\"electricite\\\":450}\";\n  http.POST(json);\n  http.end();\n  delay(5000);\n}\n"
+  }
+}
